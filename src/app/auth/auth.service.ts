@@ -7,6 +7,8 @@ import { of } from 'rxjs';
 })
 export class AuthService {
 
+  public user: any = {};
+
   public login(username: String, password: String){
     const user = {
       username, password

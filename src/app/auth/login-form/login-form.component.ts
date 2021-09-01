@@ -19,6 +19,7 @@ export class LoginFormComponent implements OnInit {
     const values = this.authForm.value;
     const result = this.authService.login(values.username, values.password)
       .subscribe((next)=>{
+        this.authService.user = values;
         this.router.navigate(['dashboard']);
       }, (error)=>{
         alert('Usuario / Contraseña Erróneos');

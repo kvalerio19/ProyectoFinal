@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { AuthService } from 'src/app/auth/auth.service';
+import { Task } from '../task';
+import { TaskService } from '../task.service';
 
 @Component({
   selector: 'app-task-form',
@@ -14,9 +17,24 @@ export class TaskFormComponent implements OnInit {
     endDate: new FormControl()
   });
 
-  public onSubmit(){}
+  public onSubmit(){
+    const task: Task = this.taskFormGroup.value;
 
-  constructor() { }
+    task.startDate = new Date();
+    task.complexLevel = 1;
+    task.hashtags = ['#prueba'];
+    task.priority = 'Alta';
+    task.status = 'En Progreso';
+
+    this.taskService.addTask(task, this.authService.user.username)
+    .subscribe((next)=>{
+      alert('Tarea agregada exitosamente');
+    }, (error)=>{
+      alert('Tarea no fue agregada!');
+    });
+  }
+
+  constructor(private taskService: TaskService, private authService: AuthService) { }
 
   ngOnInit(): void {
   }
