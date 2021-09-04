@@ -14,17 +14,19 @@ export class TaskFormComponent implements OnInit {
   public taskFormGroup: FormGroup = new FormGroup({
     title: new FormControl(),
     code: new FormControl(),
-    endDate: new FormControl()
+    endDate: new FormControl(),
+    startDate: new FormControl(),
+    status: new FormControl()
   });
 
   public onSubmit(){
     const task: Task = this.taskFormGroup.value;
 
-    task.startDate = new Date();
+    //task.startDate = new Date();
     task.complexLevel = 1;
     task.hashtags = ['#prueba'];
     task.priority = 'Alta';
-    task.status = 'En Progreso';
+    //task.status = 'En Progreso';
 
     this.taskService.addTask(task, this.authService.user.username)
     .subscribe((next)=>{
