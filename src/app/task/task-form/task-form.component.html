@@ -27,7 +27,17 @@
     <label>HasgTags de la Tarea</label>
     <br>
     <input type="Array" formControlName="hashtags">
-    <br/><br/> 
+    <br/><br/>
+    <label>Prioridad de la Tarea</label>
+    <br>
+    <select formControlName="priority">
+      <option selected="selected" value="Critic">Critica</option>
+      <option value="High">Alta</option>
+      <option value="Medium">Media</option>
+      <option value="Slow">Baja</option>
+      <option value="Very Slow">Muy Baja</option>
+      </select> 
+      <br><br>
 
   <button>Agregar Tarea!</button>
 </form>

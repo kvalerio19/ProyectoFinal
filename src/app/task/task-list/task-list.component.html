@@ -6,6 +6,7 @@
     <label>Fecha Inicio</label>
     <label>Estatus</label>
     <label>HashTags</label>
+    <label>Prioridad</label>
     <label>Acciones</label>
   </div>
   <div *ngFor="let task of tasks; let i = index" class="table-row">
@@ -16,5 +17,6 @@
     <span>{{task.startDate | date:'fullDate' }}</span>
     <span>{{task.status}}</span>
     <span>{{task.hashtags}}</span>
+    <span>{{task.priority}}</span>
     <button (click)="deleteTask(task)">Eliminar tarea</button>
   </div>

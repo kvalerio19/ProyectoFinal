@@ -17,7 +17,8 @@ export class TaskFormComponent implements OnInit {
     endDate: new FormControl(),
     startDate: new FormControl(),
     status: new FormControl(),
-    hashtags: new FormControl()
+    hashtags: new FormControl(),
+    priority: new FormControl
   });
 
   public onSubmit(){
@@ -26,7 +27,7 @@ export class TaskFormComponent implements OnInit {
     //task.startDate = new Date();
     task.complexLevel = 1;
     //task.hashtags = ['#prueba'];
-    task.priority = 'Alta';
+    //task.priority = 'Alta';
     //task.status = 'En Progreso';
 
     this.taskService.addTask(task, this.authService.user.username)
