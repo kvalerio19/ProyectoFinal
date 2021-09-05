@@ -1,4 +1,5 @@
 <form [formGroup]="taskFormGroup" (ngSubmit)="onSubmit()">
+  <!-- Estado del Formulario es {{taskFormGroup.valid}} -->
   <label>Título de la Tarea</label>
   <br/>
   <input type="text" formControlName="title">
@@ -54,5 +55,5 @@
         </select> 
         <br><br>
 
-  <button>Agregar Tarea!</button>
+  <button [disabled]="!taskFormGroup.valid">Agregar Tarea!</button>
 </form>

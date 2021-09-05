@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Task } from '../task';
 import { TaskService } from '../task.service';
@@ -12,14 +12,14 @@ import { TaskService } from '../task.service';
 export class TaskFormComponent implements OnInit {
 
   public taskFormGroup: FormGroup = new FormGroup({
-    title: new FormControl(),
-    code: new FormControl(),
-    endDate: new FormControl(),
-    startDate: new FormControl(),
-    status: new FormControl(),
-    hashtags: new FormControl(),
-    priority: new FormControl(),
-    complexLevel: new FormControl()
+    title: new FormControl(null, [Validators.required]),
+    code: new FormControl(null, [Validators.required, Validators.minLength(5)]),
+    endDate: new FormControl(null, [Validators.required]),
+    startDate: new FormControl(null, [Validators.required]),
+    status: new FormControl(null, [Validators.required]),
+    hashtags: new FormControl(null, [Validators.required]),
+    priority: new FormControl(null, [Validators.required]),
+    complexLevel: new FormControl(null, [Validators.required])
   });
 
   public onSubmit(){
