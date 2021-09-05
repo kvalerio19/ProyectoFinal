@@ -18,14 +18,15 @@ export class TaskFormComponent implements OnInit {
     startDate: new FormControl(),
     status: new FormControl(),
     hashtags: new FormControl(),
-    priority: new FormControl
+    priority: new FormControl(),
+    complexLevel: new FormControl()
   });
 
   public onSubmit(){
     const task: Task = this.taskFormGroup.value;
 
     //task.startDate = new Date();
-    task.complexLevel = 1;
+    //task.complexLevel = 1;
     //task.hashtags = ['#prueba'];
     //task.priority = 'Alta';
     //task.status = 'En Progreso';
